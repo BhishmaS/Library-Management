@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace LibraryManagement.API.Controllers
 {
-    [Route("api/books")]
+    [Route("api/book")]
     [ApiController]
     public class BooksController : ControllerBase
     {
-        [HttpGet("all")]
+        [HttpGet("list")]
         public IEnumerable<Book> GetBooks()
         {
             return new List<Book> 
@@ -18,8 +18,8 @@ namespace LibraryManagement.API.Controllers
             };
         }
 
-        [HttpGet("{bookId:int}/details")]
-        public Book GetBookDetails(int bookId)
+        [HttpGet("{bookId:int}")]
+        public Book GetBook(int bookId)
         {
             return new Book();
         }
@@ -30,8 +30,8 @@ namespace LibraryManagement.API.Controllers
             return 0; //// id of newly added category
         }
 
-        [HttpPost("category/{categoryId}/update")]
-        public int AddBookCategory(int categoryId, BookCategory bookCategory)
+        [HttpPost("category/{categoryId}")]
+        public int UpdateBookCategory(int categoryId, BookCategory bookCategory)
         {
             return 0; //// id of newly added category
         }
@@ -43,17 +43,17 @@ namespace LibraryManagement.API.Controllers
         }
 
         [HttpPost("bulkadd")]
-        public void BulkAddBooks(List<Book> books)
+        public void AddBulkBooks(List<Book> books)
         {
         }
 
-        [HttpPut("{bookId}/update")]
-        public bool UpdateBook(int bookId, Book book)
+        [HttpPut("{bookId}")]
+        public bool AddBook(int bookId, Book book)
         {
             return true; //// status whether updated or not, only if necessary
         }
 
-        [HttpDelete("{bookId}/delete")]
+        [HttpDelete("{bookId}")]
         public bool DeleteBook(int bookId)
         {
             return true;
